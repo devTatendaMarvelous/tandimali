@@ -149,6 +149,7 @@
             font-size: 0.9rem;
             position: relative;
             transition: color var(--transition);
+            white-space: nowrap;
         }
 
         .nav-links a::after {
@@ -843,6 +844,41 @@
             color: var(--gold);
         }
 
+        .calc-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .calc-tab {
+            padding: 12px 24px;
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-mid);
+            transition: all var(--transition);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .calc-tab.active {
+            background: var(--navy);
+            color: var(--white);
+            border-color: var(--navy);
+        }
+
+        .calc-tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .calc-tab-content.active {
+            display: block;
+        }
+
         .calc-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1379,6 +1415,127 @@
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq {
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all var(--transition);
+        }
+
+        .faq-item.active {
+            border-color: var(--navy);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 1.05rem;
+            user-select: none;
+        }
+
+        .faq-question span.icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: var(--gold);
+        }
+
+        .faq-item.active .faq-question span.icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--text-mid);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 24px 20px 24px;
+            max-height: 500px;
+        }
+
+        /* ===== WHATSAPP FLOATING BUTTON ===== */
+        @keyframes floatBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-12px);
+            }
+            60% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25d366, #1da851);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 28px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3), 0 0 0 4px rgba(37, 211, 102, 0.15);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            text-decoration: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            animation: floatBounce 4s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+        }
+
+        .whatsapp-float:hover {
+            animation-play-state: paused;
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4), 0 0 0 6px rgba(37, 211, 102, 0.2);
+            color: #FFF;
+        }
+
+        .whatsapp-float svg {
+            width: 36px;
+            height: 36px;
+            fill: currentColor;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 54px;
+                height: 54px;
+                bottom: 24px;
+                right: 24px;
+            }
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
         }
 
         /* ===== RESPONSIVE ===== */
