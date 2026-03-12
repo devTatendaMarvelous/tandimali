@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Calculator Form Example</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, select, button { padding: 8px; width: 100%; box-sizing: border-box; }
+    button { background-color: #0056b3; color: white; border: none; cursor: pointer; margin-top: 10px; }
+    button:hover { background-color: #004494; }
+    .hidden { display: none; }
+    .results { margin-top: 20px; padding: 15px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; }
+    .error { color: red; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Loan Calculator</h2>
+  
+  <div class="form-group">
+    <label for="loanType">Loan Type:</label>
+    <select id="loanType">
+      <option value="payday">Payday Loan</option>
+      <option value="short-term">Short-Term Loan</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="amount">Amount ($):</label>
+    <input type="number" id="amount" min="1" step="0.01" placeholder="Enter amount">
+  </div>
+
+  <div class="form-group hidden" id="tenureGroup">
+    <label for="tenure">Tenure (Months):</label>
+    <input type="number" id="tenure" min="1" max="6" placeholder="Enter tenure (1-6)">
+  </div>
+
+  <button id="calculateBtn">Calculate</button>
+
+  <div id="errorMessage" class="error"></div>
+
+  <div id="resultsPanel" class="results hidden">
+    <h3>Loan Summary</h3>
+    <pre id="resultsOutput"></pre>
+  </div>
+
+  <!-- Using type="module" so we can import our calculator module -->
+  <script type="module">
+    import { calculatePaydayLoan, calculateShortTermLoan } from './loan-calculator.js';
+
+    const loanTypeSelect = document.getElementById('loanType');
+    const tenureGroup = document.getElementById('tenureGroup');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const amountInput = document.getElementById('amount');
+    const tenureInput = document.getElementById('tenure');
+    const errorMessage = document.getElementById('errorMessage');
+    const resultsPanel = document.getElementById('resultsPanel');
+    const resultsOutput = document.getElementById('resultsOutput');
+
+    // Toggle the tenure input visibility based on loan type
+    loanTypeSelect.addEventListener('change', (e) => {
+      if (e.target.value === 'short-term') {
+        tenureGroup.classList.remove('hidden');
+      } else {
+        tenureGroup.classList.add('hidden');
+        tenureInput.value = ''; // clear tenure when switching away
+      }
+    });
+
+    // Handle Calculation
+    calculateBtn.addEventListener('click', () => {
+      // Clear previous states
+      errorMessage.textContent = '';
+      resultsPanel.classList.add('hidden');
+      
+      const loanType = loanTypeSelect.value;
+      const amount = parseFloat(amountInput.value);
+
+      try {
+        let result;
+        
+        if (loanType === 'payday') {
+          result = calculatePaydayLoan(amount);
+        } else if (loanType === 'short-term') {
+          const tenure = parseInt(tenureInput.value, 10);
+          result = calculateShortTermLoan(amount, tenure);
+        }
+
+        // Display results
+        resultsOutput.textContent = JSON.stringify(result, null, 2);
+        resultsPanel.classList.remove('hidden');
+
+      } catch (error) {
+        // Display validation errors smoothly to the user
+        errorMessage.textContent = error.message;
+      }
+    });
+  </script>
+
+</body>
+</html>
