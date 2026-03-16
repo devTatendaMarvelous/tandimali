@@ -338,7 +338,8 @@
         <div class="feature-card reveal visible">
           <div class="feature-card-icon">💼</div>
           <h3>Salary-Based Loans</h3>
-          <p>Short-term loans (1–6 months) for civil servants and employees, with flexible repayment plans tailored to your budget.</p>
+          <p>Short-term loans (1–6 months) for civil servants and employees, with flexible repayment plans tailored to
+            your budget.</p>
         </div>
         <div class="feature-card reveal visible">
           <div class="feature-card-icon">🚨</div>
@@ -379,7 +380,8 @@
         <div class="feature-card reveal visible">
           <div class="feature-card-icon">📚</div>
           <h3>Financial Literacy</h3>
-          <p>We provide comprehensive financial education to help you manage your funds effectively and make informed financial decisions.</p>
+          <p>We provide comprehensive financial education to help you manage your funds effectively and make informed
+            financial decisions.</p>
         </div>
       </div>
     </div>
@@ -561,7 +563,7 @@
         <!-- Form Wizard -->
         <div class="contact-form-wrap reveal visible" id="wizardContainer">
           <h3>📋 Loan Enquiry Form</h3>
-          
+
           <div class="wizard-progress">
             <div class="progress-step active" data-step="1">1</div>
             <div class="progress-step" data-step="2">2</div>
@@ -593,7 +595,7 @@
 
           <!-- Step 2: Contact & Employment -->
           <div class="wizard-step" id="step2">
-             <h4>Contact & Employment</h4>
+            <h4>Contact & Employment</h4>
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Email Address *</label>
@@ -605,15 +607,17 @@
               </div>
             </div>
             <div class="form-group">
-                <label for="address">Physical Address *</label>
-                <input type="text" id="address" placeholder="e.g. 123 Main St, Harare" required="">
+              <label for="address">Physical Address *</label>
+              <input type="text" id="address" placeholder="e.g. 123 Main St, Harare" required="">
             </div>
             <div class="form-group">
-                <label for="employer">Employer *</label>
-                <input type="text" id="employer" placeholder="e.g. Ministry of Education" required="">
+              <label for="employer">Employer *</label>
+              <input type="text" id="employer" placeholder="e.g. Ministry of Education" required="">
             </div>
             <div class="wizard-nav">
-              <button class="btn-outline" type="button" onclick="prevStep(2)" style="width:100%; padding:14px; border-radius:8px; border:2px solid var(--border); background:var(--white); color:var(--text-dark); font-weight:600; cursor:pointer;">← Back</button>
+              <button class="btn-outline" type="button" onclick="prevStep(2)"
+                style="width:100%; padding:14px; border-radius:8px; border:2px solid var(--border); background:var(--white); color:var(--text-dark); font-weight:600; cursor:pointer;">←
+                Back</button>
               <button class="form-submit" type="button" onclick="nextStep(2)">Next →</button>
             </div>
           </div>
@@ -641,8 +645,10 @@
                 <input type="text" id="accountNumber" placeholder="e.g. 01123456789" required="">
               </div>
             </div>
-             <div class="wizard-nav">
-              <button class="btn-outline" type="button" onclick="prevStep(3)" style="width:100%; padding:14px; border-radius:8px; border:2px solid var(--border); background:var(--white); color:var(--text-dark); font-weight:600; cursor:pointer;">← Back</button>
+            <div class="wizard-nav">
+              <button class="btn-outline" type="button" onclick="prevStep(3)"
+                style="width:100%; padding:14px; border-radius:8px; border:2px solid var(--border); background:var(--white); color:var(--text-dark); font-weight:600; cursor:pointer;">←
+                Back</button>
               <button class="form-submit" type="button" onclick="nextStep(3)">Next →</button>
             </div>
           </div>
@@ -651,19 +657,21 @@
           <div class="wizard-step" id="step4">
             <h4>Upload Documents</h4>
             <div class="form-group">
-                <label for="docId">Copy of ID * (PDF, JPEG, PNG)</label>
-                <input type="file" id="docId" accept=".pdf, .jpg, .jpeg, .png" required="">
+              <label for="docId">Copy of ID * (PDF, JPEG, PNG)</label>
+              <input type="file" id="docId" accept=".pdf, .jpg, .jpeg, .png" required="">
             </div>
             <div class="form-group">
-                <label for="docPayslip">Current Payslip * (PDF, JPEG, PNG)</label>
-                <input type="file" id="docPayslip" accept=".pdf, .jpg, .jpeg, .png" required="">
+              <label for="docPayslip">Current Payslip * (PDF, JPEG, PNG)</label>
+              <input type="file" id="docPayslip" accept=".pdf, .jpg, .jpeg, .png" required="">
             </div>
             <div class="form-group">
-                <label for="docResidence">Proof of Residence * (Utility bill, etc.)</label>
-                <input type="file" id="docResidence" accept=".pdf, .jpg, .jpeg, .png" required="">
+              <label for="docResidence">Proof of Residence * (Utility bill, etc.)</label>
+              <input type="file" id="docResidence" accept=".pdf, .jpg, .jpeg, .png" required="">
             </div>
-             <div class="wizard-nav">
-              <button class="btn-outline" type="button" onclick="prevStep(4)" style="width:100%; padding:14px; border-radius:8px; border:2px solid var(--border); background:var(--white); color:var(--text-dark); font-weight:600; cursor:pointer;">← Back</button>
+            <div class="wizard-nav">
+              <button class="btn-outline" type="button" onclick="prevStep(4)"
+                style="width:100%; padding:14px; border-radius:8px; border:2px solid var(--border); background:var(--white); color:var(--text-dark); font-weight:600; cursor:pointer;">←
+                Back</button>
               <button class="form-submit" type="button" onclick="submitWizardForm()">Submit Application →</button>
             </div>
             <p class="form-note" style="margin-top:15px">⚡ We typically respond within 24 hours on business days.</p>
@@ -806,8 +814,8 @@
       const requiredInputs = currentStepEl.querySelectorAll('[required]');
       for (let input of requiredInputs) {
         if (!input.value) {
-            input.reportValidity(); // Shows native browser tooltip
-            return false;
+          input.reportValidity(); // Shows native browser tooltip
+          return false;
         }
       }
       return true;
@@ -826,22 +834,22 @@
     }
 
     function submitWizardForm() {
-       if (validateStep(4)) {
-           const btn = document.querySelector('#step4 .form-submit');
-           const originalText = btn.textContent;
-           btn.textContent = '✅ Application Submitted!';
-           btn.style.background = 'linear-gradient(135deg, #2d7a4f, #3aab6e)';
-           btn.disabled = true;
-           
-           setTimeout(() => {
-             btn.textContent = originalText;
-             btn.style.background = '';
-             btn.disabled = false;
-             currentStep = 1;
-             showStep(1);
-             document.querySelectorAll('#wizardContainer input').forEach(input => input.value = '');
-           }, 4000);
-       }
+      if (validateStep(4)) {
+        const btn = document.querySelector('#step4 .form-submit');
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Application Submitted!';
+        btn.style.background = 'linear-gradient(135deg, #2d7a4f, #3aab6e)';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+          currentStep = 1;
+          showStep(1);
+          document.querySelectorAll('#wizardContainer input').forEach(input => input.value = '');
+        }, 4000);
+      }
     }
 
     // ===== SMOOTH SCROLL POLYFILL =====
@@ -996,6 +1004,12 @@
     });
 
   </script>
+
+
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript" src="mail.js"></script>
 
 </body>
 
